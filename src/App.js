@@ -1,37 +1,24 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import './App.css';
-import { Task } from './Task.js';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Home } from './pages/Home';
+import { Hook } from './pages/Hook';
+import { Fetch } from './pages/Fetch';
+import { Navbar } from './Navbar';
 
 function App() {
-  const [todoList, setTodoList] = useState([])
-  const [newTask, setNewTask] = useState('')
-
-  const handleChange = (event) => {
-    setNewTask(event.target.value)
-  }
-  const addTask = () => {
-    const task = {
-      id: todoList.length === 0 ? 1 : todoList[todoList.length - 1].id + 1,
-      taskName: newTask
-    }
-    setTodoList([...todoList, task])
-  }
-
-  const deleteTask = (id) => {
-    setTodoList(todoList.filter(task => { return task.id !== id }))
-  }
 
   return (
-    <div className='App'>
-      <div className="addTask">
-        <input onChange={handleChange} />
-        <button onClick={addTask}>Add task</button>
-      </div>
-      <div className="list">
-        {todoList.map(task => {
-          return <Task taskName={task.taskName} id={task.id} deleteTask={deleteTask} />
-        })}
-      </div>
+    <div className="App">
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />}></Route>
+          <Route path='/hook' element={<Hook />}></Route>
+          <Route path='/fetch' element={<Fetch />}></Route>
+          <Route path='*' element={<h1> Page not found</h1>}></Route>
+        </Routes>
+      </Router>
     </div>
   );
 }
