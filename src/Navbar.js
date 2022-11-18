@@ -1,23 +1,24 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const Navbar = (prop) => {
+export const Navbar = () => {
 
     const linkItem = [
         {
-            name: "Home",
-            path: "/",
+            name: 'Home',
+            path: '/',
         },
         {
-            name: "UseState",
-            path: "/useState",
+            name: 'UseState',
+            path: '/useState',
         },
         {
-            name: "Fetch",
-            path: "/fetch",
+            name: 'Fetch',
+            path: '/fetch',
         },
         {
-            name: "PracticeContext",
-            path: "/practiceContext",
+            name: 'PracticeContext',
+            path: '/practiceContext',
         }
     ];
 

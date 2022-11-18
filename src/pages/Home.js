@@ -1,7 +1,7 @@
-import { useContext, } from "react";
-import { AppContext, } from "../App";
+import React, { useContext } from 'react';
+import { AppContext } from '../App';
 
 export const Home = () => {
-    const { userName } = useContext(AppContext);
-    return <h1> Hi {userName} ! This is Home page.</h1>
+    const { userName, } = useContext(AppContext);
+    return <h1> Hi {userName} ! This is Home page.</h1>;
 };

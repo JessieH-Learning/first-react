@@ -1,4 +1,4 @@
-import React, { useState, createContext, } from 'react';
+import React, { useState, createContext } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from './pages/Home';
@@ -11,7 +11,7 @@ export const AppContext = createContext();
 
 function App() {
 
-  const [userName, setUserName,] = useState();
+  const [userName, setUserName] = useState();
 
   return (
     <div className="App">
