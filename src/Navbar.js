@@ -19,6 +19,10 @@ export const Navbar = () => {
         {
             name: 'PracticeContext',
             path: '/practiceContext',
+        },
+        {
+            name: 'ReactQuery',
+            path: '/reactQuery',
         }
     ];
 
