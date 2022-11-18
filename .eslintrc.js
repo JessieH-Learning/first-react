@@ -18,6 +18,10 @@ module.exports = {
         'react'
     ],
     'rules': {
+        'react/jsx-uses-react': 'error',
+        'react/jsx-uses-vars': 'error',
+        'react/prop-types': 0,
+        'no-useless-catch': 'off',
         'strict': ['error', 'global'],
         'semi': ['error', 'always'],
         'quotes': ['error', 'single', 'avoid-escape'],
