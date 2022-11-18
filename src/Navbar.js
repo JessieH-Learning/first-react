@@ -1,11 +1,29 @@
 import { Link } from 'react-router-dom';
 
-export const Navbar = () => {
+export const Navbar = (prop) => {
+
+    const linkItem = [
+        {
+            name: "Home",
+            path: "/",
+        },
+        {
+            name: "UseState",
+            path: "/useState",
+        },
+        {
+            name: "Fetch",
+            path: "/fetch",
+        },
+        {
+            name: "PracticeContext",
+            path: "/practiceContext",
+        }
+    ];
+
     return (
         <div>
-            <Link to="/"> Home</Link>
-            <Link to="/hook"> Hook</Link>
-            <Link to="/fetch"> Fetch</Link>
-        </div>
+            {linkItem.map(val => <Link to={val.path} key={val.path}> {val.name} </Link>)}
+        </div >
     );
-}
+};
