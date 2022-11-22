@@ -23,6 +23,10 @@ export const Navbar = () => {
         {
             name: 'ReactQuery',
             path: '/reactQuery',
+        },
+        {
+            name: 'Form',
+            path: '/form',
         }
     ];
 

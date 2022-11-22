@@ -6,6 +6,7 @@ import { UseState } from './pages/UseState';
 import { Fetch } from './pages/Fetch';
 import { PracticeContext } from './pages/PracticeContext';
 import { ReactQuery } from './pages/ReactQuery';
+import { Form } from './pages/Form';
 import { Navbar } from './Navbar';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
@@ -33,6 +34,7 @@ function App() {
               <Route path='/fetch' element={<Fetch />}></Route>
               <Route path='/practiceContext' element={<PracticeContext />}></Route>
               <Route path='/reactQuery' element={<ReactQuery />}></Route>
+              <Route path='/form' element={<Form />}></Route>
               <Route path='*' element={<h1> Page not found</h1>}></Route>
             </Routes>
           </Router>
