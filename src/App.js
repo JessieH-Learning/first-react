@@ -1,13 +1,13 @@
 import React, { useState, createContext } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Home } from './pages/Home';
-import { NotFoundPage } from './pages/NotFoundPage';
-import { UseState } from './pages/UseState';
-import { Fetch } from './pages/Fetch';
-import { PracticeContext } from './pages/PracticeContext';
-import { ReactQuery } from './pages/ReactQuery';
-import { Form } from './pages/Form';
+import { Home } from './Pages/Home';
+import { NotFoundPage } from './Pages/NotFoundPage';
+import { UseState } from './Pages/UseState';
+import { Fetch } from './Pages/Fetch';
+import { PracticeContext } from './Pages/PracticeContext';
+import { ReactQuery } from './Pages/ReactQuery';
+import { Form } from './Pages/Form';
 import { NavbarRouter } from './NavbarRouter';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 

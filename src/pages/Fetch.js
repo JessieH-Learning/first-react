@@ -1,16 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Button, Stack } from 'react-bootstrap';
 import { AppContext } from '../App';
-import Axios from 'axios';
+import { useGeneratedExcuse } from '../Hooks/useGeneratedExcuse';
 
 export const Fetch = () => {
-    const [generatedExcuse, setGeneratedExcuse] = useState('');
     const { userName, } = useContext(AppContext);
+    const { generatedExcuse, fetchExcuse, } = useGeneratedExcuse();
 
-    const fetchExcuse = async (excuse) => {
-        const res = await Axios.get(`https://excuser.herokuapp.com/v1/excuse/${excuse}/`);
-        setGeneratedExcuse(res.data[0].excuse);
-    };
     return (
         <article className="mx-5">
             <h1>Hi {userName}! Generate An Excuse </h1>

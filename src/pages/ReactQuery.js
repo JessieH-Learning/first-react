@@ -1,17 +1,9 @@
 import React from 'react';
-import { Button, Stack } from 'react-bootstrap';
-import { useQuery } from '@tanstack/react-query';
-import Axios from 'axios';
-
+import { Button } from 'react-bootstrap';
+import { useGetCatFact } from '../Hooks/useGetCatFact';
 export const ReactQuery = () => {
 
-    const {
-        data: catData,
-        isLoading, refetch,
-    } = useQuery(['cat'], async () => {
-        const { data, } = await Axios.get('https://catfact.ninja/fact');
-        return data;
-    });
+    const { catData, isLoading, refetch, } = useGetCatFact();
 
     return (
         <article className="mx-5">

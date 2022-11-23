@@ -1,7 +1,6 @@
 // Dependencies
 import React from 'react';
 import { Form as ReactForm, Button, FloatingLabel } from 'react-bootstrap';
-
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
