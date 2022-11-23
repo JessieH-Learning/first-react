@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Button, Stack } from 'react-bootstrap';
 import { AppContext } from '../App';
-import { Task } from '../Task';
+import { Task } from '../Components/Task';
 import { useTodoList } from '../Hooks/useTodoList';
 
 // useState Hook
@@ -23,7 +23,6 @@ export const UseState = () => {
                     })}
                 </Stack>
             </div>
-
         </article>
     );
 };
