@@ -13,11 +13,48 @@ import {
 } from 'yup';
 
 // NOTE: Need module "react-hook-form"(for displaying) & "yup"(for validation) & "@hookform/resolvers"(integration between yup & react-hook-form)
-
-const spanStyle = {
-    display: 'inline-block',
-    color: 'red',
-};
+const formLabel = [
+    {
+        registerName: 'fullName',
+        label: '*Full Name',
+        type: 'text',
+        controlId: 'formBasicFullName',
+        floatingControlId: 'floatingFullName',
+        placeholder: 'Enter full name',
+    },
+    {
+        registerName: 'email',
+        label: '*Email',
+        type: 'email',
+        controlId: 'formBasicEmail',
+        floatingControlId: 'floatingEmail',
+        placeholder: 'Enter email',
+    },
+    {
+        registerName: 'age',
+        label: '*Age',
+        type: 'number',
+        controlId: 'formBasicAge',
+        floatingControlId: 'floatingAge',
+        placeholder: 'Enter age',
+    },
+    {
+        registerName: 'password',
+        label: '*Password',
+        type: 'password',
+        controlId: 'formBasicPassword',
+        floatingControlId: 'floatingPassword',
+        placeholder: 'Enter password',
+    },
+    {
+        registerName: 'confirmPassword',
+        label: '*ConfirmPassword',
+        type: 'password',
+        controlId: 'formBasicConfirmPassword',
+        floatingControlId: 'floatingConfirmPassword',
+        placeholder: 'Enter password again',
+    }
+];
 const schema = yupObject().shape({
     fullName: yupString().required('必填'),
     email: yupString().required('必填').email('email格式錯誤'),
@@ -38,39 +75,19 @@ export const Form = () => {
     return (
         <article className="mx-5">
             <ReactForm onSubmit={handleSubmit(onSubmit)}>
-                <ReactForm.Group className="mb-3" controlId="formBasicFullName">
-                    <FloatingLabel controlId="floatingFullName" label="*Full Name">
-                        <ReactForm.Control type="text" placeholder="Enter full name" {...register('fullName')} />
-                        <ReactForm.Text sm={5} className="text-danger">{errors.fullName?.message}</ReactForm.Text>
-                    </FloatingLabel>
-                </ReactForm.Group>
-                <ReactForm.Group className="mb-3" controlId="formBasicEmail">
-                    <FloatingLabel controlId="floatingEmail" label="*Email">
-                        <ReactForm.Control type="email" placeholder="Enter email" {...register('email')} />
-                        <ReactForm.Text sm={5} className="text-danger">{errors.email?.message}</ReactForm.Text>
-                    </FloatingLabel>
-                </ReactForm.Group>
-                <ReactForm.Group className="mb-3" controlId="formBasicAge">
-                    <FloatingLabel controlId="floatingAge" label="*Age">
-                        <ReactForm.Control type="number" placeholder="Enter age" {...register('age')} />
-                        <ReactForm.Text sm={5} className="text-danger">{errors.age?.message}</ReactForm.Text>
-                    </FloatingLabel>
-                </ReactForm.Group>
-                <ReactForm.Group className="mb-3" controlId="formBasicPassword">
-                    <FloatingLabel controlId="floatingPassword" label="*Password">
-                        <ReactForm.Control type="password" placeholder="Enter password" {...register('password')} />
-                        <ReactForm.Text sm={5} className="text-danger">{errors.password?.message}</ReactForm.Text>
-                    </FloatingLabel>
-                </ReactForm.Group>
-                <ReactForm.Group className="mb-3" controlId="formBasicConfirmPassword">
-                    <FloatingLabel controlId="floatingConfirmPassword" label="*ConfirmPassword">
-                        <ReactForm.Control type="password" placeholder="Enter password again" {...register('confirmPassword')} />
-                        <ReactForm.Text sm={5} className="text-danger">{errors.confirmPassword?.message}</ReactForm.Text>
-                    </FloatingLabel>
-                </ReactForm.Group>
-
+                {formLabel.map(obj => {
+                    const { registerName, label, type, controlId, floatingControlId, placeholder, } = obj;
+                    return (
+                        < ReactForm.Group key={registerName} className="mb-3" controlId={controlId} >
+                            <FloatingLabel controlId={floatingControlId} label={label}>
+                                <ReactForm.Control type={type} placeholder={placeholder} {...register(registerName)} />
+                                <ReactForm.Text sm={5} className="text-danger">{errors[registerName]?.message}</ReactForm.Text>
+                            </FloatingLabel>
+                        </ReactForm.Group>
+                    );
+                })}
                 <Button variant="primary" type="submit"> Submit </Button>
             </ReactForm>
-        </article>
+        </article >
     );
 };
