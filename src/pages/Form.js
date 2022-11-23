@@ -1,5 +1,7 @@
 // Dependencies
 import React from 'react';
+import { Form as ReactForm, Button, FloatingLabel } from 'react-bootstrap';
+
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import {
@@ -34,15 +36,41 @@ export const Form = () => {
     });
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <input type="text" placeholder="Full Name" {...register('fullName')} /><span style={spanStyle}>{errors.fullName?.message}</span>
-                <input type="text" placeholder="Email" {...register('email')} /><span style={spanStyle}>{errors.email?.message}</span>
-                <input type="number" placeholder="Age" {...register('age')} /><span style={spanStyle}>{errors.age?.message}</span>
-                <input type="password" placeholder="Password" {...register('password')} /><span style={spanStyle}>{errors.password?.message}</span>
-                <input type="password" placeholder="Confirm Password" {...register('confirmPassword')} /><span style={spanStyle}>{errors.confirmPassword?.message}</span>
-                <input type="submit" />
-            </form>
-        </div>
+        <article className="mx-5">
+            <ReactForm onSubmit={handleSubmit(onSubmit)}>
+                <ReactForm.Group className="mb-3" controlId="formBasicFullName">
+                    <FloatingLabel controlId="floatingFullName" label="*Full Name">
+                        <ReactForm.Control type="text" placeholder="Enter full name" {...register('fullName')} />
+                        <ReactForm.Text sm={5} className="text-danger">{errors.fullName?.message}</ReactForm.Text>
+                    </FloatingLabel>
+                </ReactForm.Group>
+                <ReactForm.Group className="mb-3" controlId="formBasicEmail">
+                    <FloatingLabel controlId="floatingEmail" label="*Email">
+                        <ReactForm.Control type="email" placeholder="Enter email" {...register('email')} />
+                        <ReactForm.Text sm={5} className="text-danger">{errors.email?.message}</ReactForm.Text>
+                    </FloatingLabel>
+                </ReactForm.Group>
+                <ReactForm.Group className="mb-3" controlId="formBasicAge">
+                    <FloatingLabel controlId="floatingAge" label="*Age">
+                        <ReactForm.Control type="number" placeholder="Enter age" {...register('age')} />
+                        <ReactForm.Text sm={5} className="text-danger">{errors.age?.message}</ReactForm.Text>
+                    </FloatingLabel>
+                </ReactForm.Group>
+                <ReactForm.Group className="mb-3" controlId="formBasicPassword">
+                    <FloatingLabel controlId="floatingPassword" label="*Password">
+                        <ReactForm.Control type="password" placeholder="Enter password" {...register('password')} />
+                        <ReactForm.Text sm={5} className="text-danger">{errors.password?.message}</ReactForm.Text>
+                    </FloatingLabel>
+                </ReactForm.Group>
+                <ReactForm.Group className="mb-3" controlId="formBasicConfirmPassword">
+                    <FloatingLabel controlId="floatingConfirmPassword" label="*ConfirmPassword">
+                        <ReactForm.Control type="password" placeholder="Enter password again" {...register('confirmPassword')} />
+                        <ReactForm.Text sm={5} className="text-danger">{errors.confirmPassword?.message}</ReactForm.Text>
+                    </FloatingLabel>
+                </ReactForm.Group>
+
+                <Button variant="primary" type="submit"> Submit </Button>
+            </ReactForm>
+        </article>
     );
 };

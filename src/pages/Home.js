@@ -3,5 +3,9 @@ import { AppContext } from '../App';
 
 export const Home = () => {
     const { userName, } = useContext(AppContext);
-    return <h1> Hi {userName} ! This is Home page.</h1>;
+    return (
+        <article className="mx-5">
+            <h1> Hi {userName} ! This is Home page. </h1>
+        </article>
+    );
 };
