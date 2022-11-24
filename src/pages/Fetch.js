@@ -1,6 +1,9 @@
+//  Dependencies
 import React, { useContext } from 'react';
 import { Button, Stack } from 'react-bootstrap';
-import { AppContext } from '../App';
+
+//  Custom modules
+import { AppContext } from '../AppContext';
 import { useGeneratedExcuse } from '../Hooks/useGeneratedExcuse';
 
 export const Fetch = () => {

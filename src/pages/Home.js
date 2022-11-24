@@ -1,5 +1,8 @@
+//  Dependencies
 import React, { useContext } from 'react';
-import { AppContext } from '../App';
+
+//  Custom modules
+import { AppContext } from '../AppContext';
 
 export const Home = () => {
     const { userName, } = useContext(AppContext);
