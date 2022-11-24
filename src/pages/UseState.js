@@ -13,7 +13,7 @@ export const UseState = () => {
     const { todoList, handleChange, addTask, deleteTask, } = useTodoList();
 
     return (
-        <article className="mx-5">
+        <article className="mx-5 text-center">
             <h1> Hi {userName}! </h1>
             <Stack direction="horizontal" gap={3} className="mx-auto">
                 <input id="taskInput" onChange={handleChange} />
