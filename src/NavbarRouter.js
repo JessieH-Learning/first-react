@@ -34,6 +34,10 @@ export const NavbarRouter = () => {
         {
             name: 'Form',
             path: '/form',
+        },
+        {
+            name: 'PracticePropTypes',
+            path: '/practicePropTypes',
         }
     ];
 
