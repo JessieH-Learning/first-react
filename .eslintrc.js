@@ -21,7 +21,6 @@ module.exports = {
         'react/jsx-uses-react': 'error',
         'react/jsx-uses-vars': 'error',
         'react/prop-types': 0,
-        'no-unused-vars': 0,
         'no-useless-catch': 'off',
         'strict': ['error', 'global'],
         'semi': ['error', 'always'],
